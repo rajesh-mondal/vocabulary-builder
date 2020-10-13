@@ -9,7 +9,9 @@ if ( !$connection ) {
         $username = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
         if ( $username && $password ) {
-            $query = "INSERT INTO users(email, password) VALUES ('{$username}','{$password}')";
+            $hash = password_hash( $password, PASSWORD_BCRYPT );
+            echo $hash;
+            $query = "INSERT INTO users(email, password) VALUES ('{$username}','{$hash}')";
             mysqli_query( $connection, $query );
         }
     }
