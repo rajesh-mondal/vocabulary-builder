@@ -35,9 +35,9 @@ include_once "functions.php";
                         <input type="password" placeholder="Password" id="password" name="password">
                         <p>
                             <?php
-                            $error = $_GET['error'] ?? 0;
-                            if( $error ) {
-                                echo getErrorMessage($error);
+                            $status = $_GET['status'] ?? 0;
+                            if( $status ) {
+                                echo getStatusMessage($status);
                             }
                             ?>
                         </p>

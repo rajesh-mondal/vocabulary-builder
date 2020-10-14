@@ -1,7 +1,7 @@
 <?php
 include_once "config.php";
 $action = $_POST['action'] ?? '';
-$errorCode = 0;
+$status = 0;
 $connection = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, );
 if ( !$connection ) {
     throw new Exception( "Cannot connect to database" );
@@ -15,11 +15,14 @@ if ( !$connection ) {
             $query = "INSERT INTO users(email, password) VALUES ('{$username}','{$hash}')";
             mysqli_query( $connection, $query );
             if ( mysqli_error( $connection ) ) {
-                $errorCode = 1;
+                $status = 1;
+            }
+            else{
+                $status = 3;
             }
         }else{
-            $errorCode = 2;
+            $status = 2;
         }
-        header("Location: index.php?error={$errorCode}");
+        header("Location: index.php?status={$status}");
     }
 }
