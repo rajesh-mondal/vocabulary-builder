@@ -1,6 +1,11 @@
 <?php
 include_once "config.php";
+$errors = [
+    '1' => 'Duplicate Email Address',
+    '2' => 'Username or Password Empty',
+];
 $action = $_POST['action'] ?? '';
+$errorCode = 0;
 $connection = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, );
 if ( !$connection ) {
     throw new Exception( "Cannot connect to database" );
@@ -13,6 +18,12 @@ if ( !$connection ) {
             echo $hash;
             $query = "INSERT INTO users(email, password) VALUES ('{$username}','{$hash}')";
             mysqli_query( $connection, $query );
+            if ( mysqli_error( $connection ) ) {
+                $errorCode = 1;
+            }
+        }else{
+            $errorCode = 2;
         }
+        header("Location: index.php?error={$errorCode}");
     }
 }
