@@ -1,9 +1,5 @@
 <?php
 include_once "config.php";
-$errors = [
-    '1' => 'Duplicate Email Address',
-    '2' => 'Username or Password Empty',
-];
 $action = $_POST['action'] ?? '';
 $errorCode = 0;
 $connection = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, );

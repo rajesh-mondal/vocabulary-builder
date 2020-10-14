@@ -1,3 +1,6 @@
+<?php
+include_once "functions.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +33,14 @@
                         <input type="text" placeholder="Email Address" id="email" name="email">
                         <label for="password">Password</label>
                         <input type="password" placeholder="Password" id="password" name="password">
+                        <p>
+                            <?php
+                            $error = $_GET['error'] ?? 0;
+                            if( $error ) {
+                                echo getErrorMessage($error);
+                            }
+                            ?>
+                        </p>
                         <input class="button-primary" type="submit" value="Submit">
                         <input type="hidden" name="action" id="action" value="login">
                     </fieldset>
