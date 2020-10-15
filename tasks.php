@@ -24,5 +24,25 @@ if ( !$connection ) {
             $status = 2;
         }
         header("Location: index.php?status={$status}");
+    }else if('login'==$action){
+        $username = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
+        if ( $username && $password ) {
+            $query = "SELECT id, password FROM users WHERE email='{$username}'";
+            $result = mysqli_query($connection, $query);
+            if(mysqli_num_rows($result)>0){
+                $data = mysqli_fetch_assoc($result);
+                $_password = $data['password'];
+                $_id = $data['id'];
+                if(password_verify($password, $_password)){
+                    echo "Login Successful";
+                }else{
+                    echo "Username and Password didn't match";
+                }
+            }
+        }else{
+            $status = 2;
+        }
+        //header("Location: index.php?status={$status}");
     }
 }
