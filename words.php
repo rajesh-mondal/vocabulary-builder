@@ -22,8 +22,8 @@ if( !$_user_id ){
 <div class="sidebar">
     <h4>Menu</h4>
     <ul class="menu">
-        <li><a href="#">All Words</a></li>
-        <li><a href="#">Add New Word</a></li>
+        <li><a href="words.php" class="menu-item" data-target="words">All Words</a></li>
+        <li><a href="#" class="menu-item" data-target="wordform">Add New Word</a></li>
         <li><a href="logout.php">Logout</a></li>
     </ul>
 </div>
@@ -36,7 +36,7 @@ if( !$_user_id ){
         <div class="row">
             <div class="column column-50">
                 <div class="alphabets">
-                    <select id="alphabets">
+                    <select id="ageRangeField">
                         <option value="all">All Words</option>
                         <option value="A">A#</option>
                         <option value="B">B#</option>
