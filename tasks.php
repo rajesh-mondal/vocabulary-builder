@@ -34,15 +34,18 @@ if ( !$connection ) {
                 $data = mysqli_fetch_assoc($result);
                 $_password = $data['password'];
                 $_id = $data['id'];
-                if(password_verify($password, $_password)){
-                    echo "Login Successful";
+                if(password_verify( $password, $_password ) ) {
+                    header("Location: words.php");
+                    die();
                 }else{
-                    echo "Username and Password didn't match";
+                    $status = 4;
                 }
+            }else{
+                $status = 5;
             }
         }else{
             $status = 2;
         }
-        //header("Location: index.php?status={$status}");
+        header("Location: index.php?status={$status}");
     }
 }
