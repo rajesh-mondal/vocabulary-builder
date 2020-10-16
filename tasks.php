@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "config.php";
 $action = $_POST['action'] ?? '';
 $status = 0;
@@ -35,6 +36,7 @@ if ( !$connection ) {
                 $_password = $data['password'];
                 $_id = $data['id'];
                 if(password_verify( $password, $_password ) ) {
+                    $_SESSION['id'] = $_id;
                     header("Location: words.php");
                     die();
                 }else{

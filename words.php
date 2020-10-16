@@ -1,3 +1,11 @@
+<?php
+session_start();
+$_user_id = $_SESSION['id']??0;
+if( !$_user_id ){
+    header('Location: index.php');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +22,8 @@
 <div class="sidebar">
     <h4>Menu</h4>
     <ul class="menu">
-        <li><a href="words.php" class="menu-item" data-target="words">All Words</a></li>
-        <li><a href="#" class="menu-item" data-target="wordform">Add New Word</a></li>
+        <li><a href="#">All Words</a></li>
+        <li><a href="#">Add New Word</a></li>
         <li><a href="logout.php">Logout</a></li>
     </ul>
 </div>
