@@ -64,6 +64,16 @@ if( !$_user_id ){
             </tr>
             </thead>
             <tbody>
+            <?php
+            for( $i = 0; $i < 5; $i ++ ){
+                ?>
+                <tr>
+                    <td>Random Word</td>
+                    <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                </tr>
+                <?php
+            }    
+            ?>
             </tbody>
         </table>
     </div>
