@@ -37,7 +37,7 @@ if( !$_user_id ){
         <div class="row">
             <div class="column column-50">
                 <div class="alphabets">
-                    <select id="ageRangeField">
+                    <select id="alphabets">
                         <option value="all">All Words</option>
                         <option value="A">A#</option>
                         <option value="B">B#</option>
@@ -73,7 +73,7 @@ if( !$_user_id ){
                     ?>
                     <tr>
                         <td><?php echo $words[$i]['word']; ?></td>
-                        <td><?php echo $words[$i]['meaning'] ?></td>
+                        <td><?php echo $words[$i]['meaning']; ?></td>
                     </tr>
                     <?php
                 }
