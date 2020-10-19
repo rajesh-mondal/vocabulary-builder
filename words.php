@@ -66,7 +66,13 @@ if( !$_user_id ){
             </thead>
             <tbody>
             <?php
-            $words = getWords($_user_id);
+            if(isset($_POST['submit'])){
+                $searchedText = $_POST['search'];
+                $words = getWords($_user_id, $searchedText);
+            }else{
+                $words = getWords($_user_id);
+            }
+            
             if(count($words)>0){
                 $length = count($words);
                 for ($i = 0; $i<$length; $i++){
