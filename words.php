@@ -48,7 +48,7 @@ if( !$_user_id ){
                         <option value="V">V#</option>
                     </select>  
                 </div>
-            </div>
+            </div>           
             <div class="column column-50">
                 <form action="" method="POST">
                     <button class="float-right" name="submit" value="submit">Search</button>
